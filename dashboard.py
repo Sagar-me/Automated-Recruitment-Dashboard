@@ -404,47 +404,9 @@ if not funnel_df.empty:
                     })
 else:
     st.info("No data to construct the industry conversion funnel.")
+st.markdown("---")
 
-
-# --- DYNAMIC CSS (Instant-Feedback) ---
-# This CSS block is now very simple. It only themes the main page
-# background and text, which provides instant feedback.
-# All widget styling (dataframes, calendars) is now handled
-# by the config.toml file, which requires a refresh.
-
-if st.session_state.theme == "dark":
-    bg_color = "#000000"
-    text_color = "#FFFFFF"
-else:
-    bg_color = "#FFFFFF"
-    text_color = "#000000"
-
-st.markdown(f"""
-<style>
-/* Base background & text */
-body, .stApp {{
-    background-color: {bg_color} !important;
-    color: {text_color} !important;
-}}
-
-/* Titles, headers, markdown text */
-h1, h2, h3, h4, h5, h6, p, label {{
-    color: {text_color} !important;
-}}
-
-/* Metric components */
-[data-testid="stMetricValue"], [data-testid="stMetricLabel"], [data-testid="stMetricDelta"] {{
-    color: {text_color} !important;
-}}
-
-/*
-   NOTE: We have REMOVED all custom CSS for:
-   - st.dataframe
-   - .react-datepicker-popper (calendar)
-   - .vega-embed (chart buttons)
-   
-   These will now be styled *correctly* by Streamlit's
-   internal theming engine AFTER you refresh the page.
 */
 </style>
+
 """, unsafe_allow_html=True)
